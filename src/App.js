@@ -24,7 +24,7 @@ class App extends Component {
         this.setState({
           people: dataFlat
         })
-        const nameUrls = dataFlat.map(obj => `https://cors-anywhere.herokuapp.com/https://api.duckduckgo.com/?q=${obj.name.replace(" ", "+")}+star+wars&format=json`);
+        const nameUrls = dataFlat.map(obj => `https://api.duckduckgo.com/?q=${obj.name.replace(" ", "+")}+star+wars&format=json`);
         this.fetchImgSeq(nameUrls);
       })
   }
