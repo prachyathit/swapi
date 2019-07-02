@@ -24,16 +24,16 @@ class App extends Component {
         this.setState({
           people: dataFlat
         })
-        const nameUrls = dataFlat.map(obj => `https://api.duckduckgo.com/?q=${obj.name.replace(" ", "+")}+star+wars&format=json`);
+        const nameUrls = dataFlat.map(obj => `https://cors-anywhere.herokuapp.com/https://api.duckduckgo.com/?q=${obj.name.replace(" ", "+")}+star+wars&format=json`);
         this.fetchImgSeq(nameUrls);
       })
   }
   //Avoid duckduckgo 429 too many requests, used sequential fetch instead
   fetchImgSeq = async(Urls) => {
     for (const url of Urls) {
-      const test = await this.fetchUrl(url);
+      const result = await this.fetchUrl(url);
       this.setState({
-        image: [...this.state.image, test.Image]
+        image: [...this.state.image, result.Image]
       })
     }
   }
