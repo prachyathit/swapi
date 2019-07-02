@@ -28,6 +28,7 @@ class App extends Component {
         this.fetchImgSeq(nameUrls);
       })
   }
+  //Avoid duckduckgo 429 too many requests, used sequential fetch instead
   fetchImgSeq = async(Urls) => {
     for (const url of Urls) {
       const test = await this.fetchUrl(url);
